@@ -14,7 +14,6 @@ import wrappers.TextArea;
 
 import static constants.Constants.URLS.NEW_ACCOUNT_MODAL_URL;
 
-
 @Log4j2
 public class NewAccountModal extends BasePage {
 

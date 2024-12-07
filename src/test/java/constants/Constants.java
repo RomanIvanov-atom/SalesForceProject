@@ -17,5 +17,4 @@ public class Constants {
     public static final String NEW_LABEL = "New";
     public static final String HOT_RATING = "Hot";
     public static final String TRUE_STATE = "true";
-
 }

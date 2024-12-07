@@ -32,6 +32,5 @@ public class AccountFactory {
                 .description(faker.lorem().sentence())
                 .build();
     }
-
 }
 
