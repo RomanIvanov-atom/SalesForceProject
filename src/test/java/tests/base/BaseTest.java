@@ -1,7 +1,5 @@
 package tests.base;
 
-import pages.LoginPage;
-import pages.NewAccountModal;
 import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,15 +8,26 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import pages.AccountsPage;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.NewAccountModal;
+import steps.AccountStep;
+import steps.LoginStep;
 import tests.TestListener;
+
 import java.time.Duration;
 
 @Listeners(TestListener.class)
 public class BaseTest {
 
     protected WebDriver driver;
-    protected NewAccountModal newAccountModal;
     protected LoginPage loginPage;
+    protected HomePage homePage;
+    protected AccountsPage accountsPage;
+    protected NewAccountModal newAccountModal;
+    protected LoginStep loginStep;
+    protected AccountStep accountStep;
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -36,7 +45,11 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
+        accountsPage = new AccountsPage(driver);
         newAccountModal = new NewAccountModal(driver);
+        loginStep = new LoginStep(driver);
+        accountStep = new AccountStep(driver);
     }
 
     @AfterMethod(alwaysRun = true)
