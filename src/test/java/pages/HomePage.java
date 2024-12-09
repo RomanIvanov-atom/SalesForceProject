@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.base.BasePage;
 
-import static constants.Constants.URLS.HOME_URL;
+import static constants.Constants.Urls.HOME_URL;
 
 @Log4j2
 public class HomePage extends BasePage {

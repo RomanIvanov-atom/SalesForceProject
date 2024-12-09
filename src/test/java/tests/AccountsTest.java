@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 import static constants.Constants.*;
+import static constants.Constants.Credentials.*;
 import static dto.AccountFactory.getFullfilledAccount;
 
 public class AccountsTest extends BaseTest {
@@ -13,7 +14,7 @@ public class AccountsTest extends BaseTest {
         //logic without steps
         loginPage.open()
                 .isPageOpened()
-                .doLogin(Credentials.USER_USERNAME, Credentials.USER_PASSWORD)
+                .doLogin(USER_USERNAME, USER_PASSWORD)
                 .open()
                 .isPageOpened()
                 .selectAccountsOption()

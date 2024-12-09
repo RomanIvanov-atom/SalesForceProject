@@ -12,7 +12,7 @@ import wrappers.Input;
 import wrappers.Picklist;
 import wrappers.TextArea;
 
-import static constants.Constants.URLS.NEW_ACCOUNT_MODAL_URL;
+import static constants.Constants.Urls.NEW_ACCOUNT_MODAL_URL;
 
 @Log4j2
 public class NewAccountModal extends BasePage {

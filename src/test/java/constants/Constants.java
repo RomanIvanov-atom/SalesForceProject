@@ -7,7 +7,7 @@ public class Constants {
         public static final String USER_PASSWORD = "Password001";
     }
 
-    public static class URLS {
+    public static class Urls {
         public static final String ACCOUNTS_URL = "https://tms9-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=__Recent";
         public static final String HOME_URL = "https://tms9-dev-ed.develop.lightning.force.com/lightning/page/home";
         public static final String NEW_ACCOUNT_MODAL_URL = "https://tms9-dev-ed.develop.lightning.force.com/lightning/o/Account/new";
