@@ -1,12 +1,17 @@
 package wrappers;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Quotes;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
+import static constants.Constants.TRUE_STATE;
+
+@Log4j2
 public class Picklist {
 
     WebDriver driver;
@@ -24,6 +29,7 @@ public class Picklist {
     }
 
     public void selectSpecificOptionFromPicklist(String option) {
+        log.info("Selecting '{}' inside picklist '{}'", option, label);
         setDropDownOpen(true);
         driver.findElement(By.xpath(String.format(SPECIFIC_ITEM_IN_PICKLIST, Quotes.escape(label),
                 Quotes.escape(option)))).click();
@@ -31,7 +37,7 @@ public class Picklist {
 
     private boolean isSpecificSelectOpen() {
         return driver.findElement(By.xpath(String.format(PICKLIST_INPUT, Quotes.escape(label))))
-                .getAttribute("aria-expanded").contains("true");
+                .getAttribute("aria-expanded").contains(TRUE_STATE);
     }
 
     private void setDropDownOpen(boolean open) {

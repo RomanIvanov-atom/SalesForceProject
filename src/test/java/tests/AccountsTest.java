@@ -3,44 +3,28 @@ package tests;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
+import static constants.Constants.*;
+import static constants.Constants.Credentials.*;
+import static dto.AccountFactory.getFullfilledAccount;
+
 public class AccountsTest extends BaseTest {
 
     @Test
     public void checkCreateAccount() {
-        String username = "tborodich@tms.sandbox";
-        String password = "Password001";
-        String testName = "Roma";
-        String testRating = "Hot";
-        String testAccountNumber = "12-23-34";
-        String testPhoneNumber = "8-800-555-35-35";
-        String testFax = "11-22-33";
-        String testWebSite = "www.test.website.com";
-        String testAccountSite = "www.test.accountSite.com";
-        String testTickerSymbol = "abc";
-        String testType = "Prospect";
-        String testOwnership = "Public";
-        String testIndustry = "Agriculture";
-        int testEmployees = 12;
-        int testAnnualRevenue = 100500;
-        String testSicCode = "someSicCode";
-        String testBillingStreet = "Kudikino";
-        String testShippingStreet = "Kudikino for shipping";
-        String testCustomerPriority = "High";
-        String testSLA = "Gold";
-        String testSLASerialNumber = "1122aabb";
-        int testNumberOfLocations = 123456;
-        String testUpsellOpportunity = "Yes";
-        String testIsActive = "No";
-        String testDescription = "Test text for description";
+        //logic without steps
+        loginPage.open()
+                .isPageOpened()
+                .doLogin(USER_USERNAME, USER_PASSWORD)
+                .open()
+                .isPageOpened()
+                .selectAccountsOption()
+                .clickOnActionButton(NEW_LABEL)
+                .waitForCreateAccountModalIsOpened()
+                .createAccountOnlyWithRequiredFields(getFullfilledAccount(HOT_RATING))
+                .clickSaveButton();
 
-        loginPage.openMainPage();
-        loginPage.doLogin(username, password);
-        newAccountModal.openCreateAccountModal();
-        newAccountModal.waitForCreateAccountModalIsOpened();
-        newAccountModal.createAccount(testName, testRating, testPhoneNumber, testFax, testAccountNumber, testWebSite,
-                testAccountSite, testTickerSymbol, testType, testOwnership, testIndustry, testEmployees, testAnnualRevenue,
-                testSicCode, testBillingStreet, testShippingStreet, testCustomerPriority, testSLA, testSLASerialNumber,
-                testNumberOfLocations, testUpsellOpportunity, testIsActive, testDescription);
-        newAccountModal.clickSaveButton();
+//        logic with business steps
+//        loginStep.login(Credentials.USER_USERNAME, Credentials.USER_PASSWORD);
+//        accountStep.create(getFullfilledAccount(HOT_RATING));
     }
 }
